@@ -1,0 +1,40 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+/* 
+body * {
+    border: 1px solid red;
+} */
+
+.mainContainer {
+    display: flex;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    flex: 1;
+    margin: 5px;
+}
+
+.gridContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.gridRow {
+    display: flex;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+.gridCell {
+    border: 1px solid black;
+    margin: 1px;
+    min-width: 20px;
+    min-height: 20px;
+}
