@@ -11,7 +11,6 @@ const createGrid = function(gridSize) {
             newGridRow.append(newGridCell);
         }
     }
-    activateCellColoring();
 };
 
 const resetGrid = function() {
@@ -21,7 +20,7 @@ const resetGrid = function() {
     });
 };
 
-const activateCellColoring = function() {
+const cellBasicColoring = function() {
     const colorCellList = document.querySelectorAll('div.gridCell');
     colorCellList.forEach((cell) => {
         cell.addEventListener('mouseover', () => {
@@ -29,3 +28,15 @@ const activateCellColoring = function() {
         });
     });
 };
+
+const cellMultiColoring = function() {
+    const randomRGB = () => Math.floor(Math.random() * 255);
+    const colorCellList = document.querySelectorAll('div.gridCell');
+    colorCellList.forEach((cell) => {
+        cell.addEventListener('mouseover', () => {
+            cell.setAttribute('style', `background: rgb(${randomRGB()}, ${randomRGB()}, ${randomRGB()})`);
+        });
+    });
+};
+
+createGrid(16);
