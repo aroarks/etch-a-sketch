@@ -1,3 +1,4 @@
+
 const createGrid = function(gridSize) {
     resetGrid();
     const gridContainer = document.querySelector('div.gridContainer');
@@ -14,29 +15,32 @@ const createGrid = function(gridSize) {
 };
 
 const resetGrid = function() {
-    const itemsToRemove = document.querySelectorAll('div.gridRow');
-    itemsToRemove.forEach((item) => {
-        item.remove();
+    const rowsToRemove = document.querySelectorAll('div.gridRow');
+    rowsToRemove.forEach((row) => {
+        row.remove();
     });
 };
 
-const cellBasicColoring = function() {
+const colorGrid = function() {
     const colorCellList = document.querySelectorAll('div.gridCell');
     colorCellList.forEach((cell) => {
         cell.addEventListener('mouseover', () => {
-            cell.setAttribute('style', 'background: black');
+            cell.setAttribute('style', `background: black`);
         });
     });
 };
 
-const cellMultiColoring = function() {
-    const randomRGB = () => Math.floor(Math.random() * 255);
+const colorGridMulti = function() {
     const colorCellList = document.querySelectorAll('div.gridCell');
     colorCellList.forEach((cell) => {
         cell.addEventListener('mouseover', () => {
-            cell.setAttribute('style', `background: rgb(${randomRGB()}, ${randomRGB()}, ${randomRGB()})`);
+            cell.setAttribute('style', `background: ${randRGB()}`);
         });
     });
 };
+
+const randNum = (x) => Math.floor(Math.random() * x);
+
+const randRGB = () => `rgb(${randNum(256)}, ${randNum(256)}, ${randNum(256)})`;
 
 createGrid(16);
